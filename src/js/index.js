@@ -15,7 +15,6 @@ import { elements, renderLoader, clearLoader } from './views/base';
 // Shopping list object
 // Liked recipes
 const state = {};
-window.state = state;
 
 ///////////////////////
 // SEARCH CONTROLLER //
@@ -106,9 +105,6 @@ const controlRecipe = async () => {
     }
 };
 
-['hashchange', 'load'].forEach((event) => {
-    window.addEventListener(event, controlRecipe);
-});
 
 /////////////////////
 // LIST CONTROLLER //
@@ -167,6 +163,10 @@ const controlLike = () => {
 };
 
 
+// Event handlers
+['hashchange', 'load'].forEach((event) => {
+    window.addEventListener(event, controlRecipe);
+});
 
 
 // Handle delete and update list item events
